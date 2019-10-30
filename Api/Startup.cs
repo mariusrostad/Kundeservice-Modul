@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace Api
 {
@@ -29,9 +30,10 @@ namespace Api
         {
             services.AddControllers();
 
-            services.AddDbContext<VyDbContext>(options =>
+            services.AddDbContext<VyDbContext>(option => option.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSwaggerGen(c =>
             {
-                options.UseSqlite(Configuration.GetConnectionString("VyDbContextConnectionString"));
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
         }
 
@@ -48,6 +50,13 @@ namespace Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "VyKundeservice API V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
