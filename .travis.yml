@@ -1,0 +1,7 @@
+language: csharp
+solution: VyKundeservice.sln
+
+mono:
+  - latest
+dotnet:
+  - 3.0
