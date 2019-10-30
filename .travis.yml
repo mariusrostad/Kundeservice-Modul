@@ -1,7 +1,7 @@
 language: csharp
 solution: VyKundeservice.sln
-
-mono:
-  - latest
-dotnet:
-  - 3.0
+mono: none
+dotnet: 3.0
+os: linux
+script: 
+  - dotnet restore || travis_terminate 1
