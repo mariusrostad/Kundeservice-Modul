@@ -3,5 +3,9 @@ solution: VyKundeservice.sln
 mono: none
 dotnet: 3.0
 os: linux
+
+install:
+- dotnet restore
+
 script: 
   - dotnet restore || travis_terminate 1
