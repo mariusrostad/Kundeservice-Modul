@@ -7,31 +7,29 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { FaqComponent } from './faq/faq.component';
+import { SidebarComponent } from './faq-components/sidebar/sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
-    FaqComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'faq', component: FaqComponent },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+   declarations: [
+     AppComponent,
+     NavMenuComponent,
+     HomeComponent,
+     FetchDataComponent,
+     SidebarComponent
+   ],
+   imports: [
+     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+     HttpClientModule,
+     FormsModule,
+     RouterModule.forRoot([
+       { path: '', component: HomeComponent, pathMatch: 'full' },
+       { path: 'fetch-data', component: FetchDataComponent },
+     ]),
+     BrowserAnimationsModule
+   ],
+   providers: [],
+   bootstrap: [AppComponent]
+ })
 export class AppModule { }
