@@ -10,24 +10,26 @@ import { HomeComponent } from './home/home.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { SidebarComponent } from './faq-components/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
    declarations: [
-     AppComponent,
-     NavMenuComponent,
-     HomeComponent,
-     FetchDataComponent,
-     SidebarComponent
+      AppComponent,
+      NavMenuComponent,
+      HomeComponent,
+      FetchDataComponent,
+      SidebarComponent,
+      QuestionComponent
    ],
    imports: [
-     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-     HttpClientModule,
-     FormsModule,
-     RouterModule.forRoot([
-       { path: '', component: HomeComponent, pathMatch: 'full' },
-       { path: 'fetch-data', component: FetchDataComponent },
-     ]),
-     BrowserAnimationsModule
+      HttpClientModule,
+      FormsModule,
+      BrowserAnimationsModule,
+      RouterModule.forRoot([
+         { path: '', component: HomeComponent, pathMatch: 'full' },
+         { path: 'fetch-data', component: FetchDataComponent },
+         { path: 'question', component: QuestionComponent },
+       ]),
    ],
    providers: [],
    bootstrap: [AppComponent]
