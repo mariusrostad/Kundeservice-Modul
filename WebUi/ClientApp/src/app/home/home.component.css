@@ -10,3 +10,7 @@
     padding: 32px;
     background-color: #eeeeee;
 }
+
+.bd-sidebar {
+    border-right: 1px solid grey;
+}
