@@ -1,5 +1,5 @@
 export class Rating {
-    Id: Number;
-    Positive: Number;
-    Negative: Number;
+    id: Number;
+    positive: Number;
+    negative: Number;
 }
