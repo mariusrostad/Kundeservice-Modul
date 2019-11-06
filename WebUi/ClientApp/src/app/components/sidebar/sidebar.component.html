@@ -1,0 +1,11 @@
+<div class="sidebar">
+  <h3>Kategorier</h3>
+  <div *ngFor="let category of (categories$ | async)">
+    <a [routerLink]="['/category/', category.id]">{{ category.name }}</a>
+    <ul>
+      <li *ngFor="let question of category.questions">
+        <a [routerLink]="['/question/', question.id]">{{ question.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
