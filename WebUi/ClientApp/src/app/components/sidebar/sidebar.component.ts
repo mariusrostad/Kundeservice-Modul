@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarApiService } from '../../services/sidebar-api/sidebar-api.service';
+import { CategoryService } from '../../services/category.service';
 import { Observable } from 'rxjs';
 import { Category } from '../../models/category';
 
@@ -11,7 +11,7 @@ import { Category } from '../../models/category';
 export class SidebarComponent implements OnInit {
   categories$: Observable<Category[]>;
 
-  constructor(private sidebarApiService: SidebarApiService) { }
+  constructor(private sidebarApiService: CategoryService) { }
 
   ngOnInit() {
     this.sidebarApiService.getCategories().subscribe((data) => {
