@@ -1,0 +1,10 @@
+<div class="sidebar">
+  <div *ngFor="let category of categories">
+    <a href="{{ category.id }}"></a>
+    <ul>
+      <li *ngFor="let question of category.question">
+        <a href="{{ question.id }}"></a>
+      </li>
+    </ul>
+  </div>
+</div>

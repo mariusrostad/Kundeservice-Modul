@@ -1,4 +1,4 @@
-namespace Api.Model {
+namespace WebUi.Model {
     public class Rating {
         public int Id { get; set; }
         public int Positive { get; set; }

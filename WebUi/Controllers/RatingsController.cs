@@ -5,55 +5,55 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Api.Model;
-using Api.Persistence;
+using WebUi.Model;
+using WebUi.Persistence;
 
-namespace Api.Controllers
+namespace WebUi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QuestionsController : ControllerBase
+    public class RatingsController : ControllerBase
     {
         private readonly VyDbContext _context;
 
-        public QuestionsController(VyDbContext context)
+        public RatingsController(VyDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Questions
+        // GET: api/Ratings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Question>>> GetQuestions()
+        public async Task<ActionResult<IEnumerable<Rating>>> GetRatings()
         {
-            return await _context.Questions.ToListAsync();
+            return await _context.Ratings.ToListAsync();
         }
 
-        // GET: api/Questions/5
+        // GET: api/Ratings/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Question>> GetQuestion(int id)
+        public async Task<ActionResult<Rating>> GetRating(int id)
         {
-            var question = await _context.Questions.FindAsync(id);
+            var rating = await _context.Ratings.FindAsync(id);
 
-            if (question == null)
+            if (rating == null)
             {
                 return NotFound();
             }
 
-            return question;
+            return rating;
         }
 
-        // PUT: api/Questions/5
+        // PUT: api/Ratings/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutQuestion(int id, Question question)
+        public async Task<IActionResult> PutRating(int id, Rating rating)
         {
-            if (id != question.Id)
+            if (id != rating.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(question).State = EntityState.Modified;
+            _context.Entry(rating).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!QuestionExists(id))
+                if (!RatingExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Questions
+        // POST: api/Ratings
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Question>> PostQuestion(Question question)
+        public async Task<ActionResult<Rating>> PostRating(Rating rating)
         {
-            _context.Questions.Add(question);
+            _context.Ratings.Add(rating);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
+            return CreatedAtAction("GetRating", new { id = rating.Id }, rating);
         }
 
-        // DELETE: api/Questions/5
+        // DELETE: api/Ratings/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Question>> DeleteQuestion(int id)
+        public async Task<ActionResult<Rating>> DeleteRating(int id)
         {
-            var question = await _context.Questions.FindAsync(id);
-            if (question == null)
+            var rating = await _context.Ratings.FindAsync(id);
+            if (rating == null)
             {
                 return NotFound();
             }
 
-            _context.Questions.Remove(question);
+            _context.Ratings.Remove(rating);
             await _context.SaveChangesAsync();
 
-            return question;
+            return rating;
         }
 
-        private bool QuestionExists(int id)
+        private bool RatingExists(int id)
         {
-            return _context.Questions.Any(e => e.Id == id);
+            return _context.Ratings.Any(e => e.Id == id);
         }
     }
 }

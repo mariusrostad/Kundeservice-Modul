@@ -1,4 +1,4 @@
-namespace Api.Model {
+namespace WebUi.Model {
     public class Question {
         
         public int Id { get; set; }

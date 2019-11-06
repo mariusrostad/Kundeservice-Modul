@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Api.Migrations
+namespace WebUi.Migrations
 {
-    public partial class IntialMigration : Migration
+    public partial class Initialmodel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

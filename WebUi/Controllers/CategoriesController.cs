@@ -5,55 +5,55 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Api.Model;
-using Api.Persistence;
+using WebUi.Model;
+using WebUi.Persistence;
 
-namespace Api.Controllers
+namespace WebUi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AnswersController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         private readonly VyDbContext _context;
 
-        public AnswersController(VyDbContext context)
+        public CategoriesController(VyDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Answers
+        // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Answer>>> GetAnswers()
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
-            return await _context.Answers.ToListAsync();
+            return await _context.Categories.Include(c => c.Questions).ToListAsync();
         }
 
-        // GET: api/Answers/5
+        // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Answer>> GetAnswer(int id)
+        public async Task<ActionResult<Category>> GetCategory(int id)
         {
-            var answer = await _context.Answers.FindAsync(id);
+            var category = await _context.Categories.FindAsync(id);
 
-            if (answer == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return answer;
+            return category;
         }
 
-        // PUT: api/Answers/5
+        // PUT: api/Categories/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAnswer(int id, Answer answer)
+        public async Task<IActionResult> PutCategory(int id, Category category)
         {
-            if (id != answer.Id)
+            if (id != category.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(answer).State = EntityState.Modified;
+            _context.Entry(category).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AnswerExists(id))
+                if (!CategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Answers
+        // POST: api/Categories
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Answer>> PostAnswer(Answer answer)
+        public async Task<ActionResult<Category>> PostCategory(Category category)
         {
-            _context.Answers.Add(answer);
+            _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAnswer", new { id = answer.Id }, answer);
+            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
         }
 
-        // DELETE: api/Answers/5
+        // DELETE: api/Categories/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Answer>> DeleteAnswer(int id)
+        public async Task<ActionResult<Category>> DeleteCategory(int id)
         {
-            var answer = await _context.Answers.FindAsync(id);
-            if (answer == null)
+            var category = await _context.Categories.FindAsync(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            _context.Answers.Remove(answer);
+            _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
 
-            return answer;
+            return category;
         }
 
-        private bool AnswerExists(int id)
+        private bool CategoryExists(int id)
         {
-            return _context.Answers.Any(e => e.Id == id);
+            return _context.Categories.Any(e => e.Id == id);
         }
     }
 }
