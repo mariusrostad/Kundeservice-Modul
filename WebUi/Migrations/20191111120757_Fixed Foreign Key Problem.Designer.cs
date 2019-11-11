@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebUi.Persistence;
 
 namespace WebUi.Migrations
 {
     [DbContext(typeof(VyDbContext))]
-    partial class VyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191111120757_Fixed Foreign Key Problem")]
+    partial class FixedForeignKeyProblem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

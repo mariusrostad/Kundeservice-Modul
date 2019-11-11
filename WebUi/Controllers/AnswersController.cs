@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebUi.Model;
+using WebUi.Models;
 using WebUi.Persistence;
 
 namespace WebUi.Controllers

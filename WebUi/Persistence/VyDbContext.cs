@@ -1,6 +1,7 @@
 using System;
-using WebUi.Model;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using WebUi.Models;
 
 namespace WebUi.Persistence {
     public class VyDbContext : DbContext {
@@ -10,13 +11,13 @@ namespace WebUi.Persistence {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
-        public DbSet<Rating> Ratings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>()
-                .HasMany(q => q.Questions)
-                .WithOne(c => c.Category);
+            //modelBuilder.Entity<Question>()
+            //    .HasKey(q => q.Id);
+            //modelBuilder.Entity<Category>()
+            //    .HasKey(c => c.Id);
         }
     }
 }

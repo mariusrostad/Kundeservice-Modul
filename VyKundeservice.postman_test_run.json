@@ -1,0 +1,648 @@
+{
+	"id": "da7614de-56c0-4ae7-b00c-fba6a02b2a38",
+	"name": "VyKundeservice",
+	"allTests": [],
+	"timestamp": "2019-11-11T12:19:17.773Z",
+	"collection_id": "978638d9-a02a-495b-9e22-e898fcb7c322",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 500,
+	"count": 1,
+	"collection": {
+		"id": "978638d9-a02a-495b-9e22-e898fcb7c322",
+		"name": "VyKundeservice",
+		"order": [
+			"80a9c7d5-f62d-40dd-acf6-d73424bd0004",
+			"ce0836a1-d953-42d8-8f33-af97484d489c",
+			"c3fad9b0-9dcb-43a3-abdb-318350ae31bf",
+			"b54a5c42-5129-40fa-be17-fc04d80e3fe4",
+			"06cebf3f-be47-403c-9fa9-9f19276fbce0",
+			"8c41c84f-c51f-4753-9a19-5adabdce594f",
+			"d025d3a6-66a9-4c13-a7e3-0e8b54fd8ee0",
+			"808177f4-9013-454e-b5ce-403031fe6e95",
+			"0c8422f6-3bf7-44fe-be5b-06950ee7fbca",
+			"fe08eee4-da0a-454a-80fe-b234b8994f90",
+			"44082bd1-2707-448a-8f30-ca8209ae02a4",
+			"a24804da-3349-4b6b-90f3-498d0229222f",
+			"e7f2fd50-e2cb-4231-a0d7-ac1826ac70ed",
+			"3c96293b-3ead-460f-b966-c2641e79ae41",
+			"2d4aa4a3-5c88-4b1a-8bb0-42d53a3fe568"
+		],
+		"folders_order": [],
+		"isFavorite": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": null,
+	"results": [
+		{
+			"name": "Post Category - Admin",
+			"id": "80a9c7d5-f62d-40dd-acf6-d73424bd0004",
+			"url": "http://localhost:5000/api/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"229"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "229",
+			"totalRequestTime": "229",
+			"iterationResults": {}
+		},
+		{
+			"name": "Admin - Q1",
+			"id": "ce0836a1-d953-42d8-8f33-af97484d489c",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"90"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "90",
+			"totalRequestTime": "90",
+			"iterationResults": {}
+		},
+		{
+			"name": "Admin - Q2",
+			"id": "c3fad9b0-9dcb-43a3-abdb-318350ae31bf",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"32"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "32",
+			"totalRequestTime": "32",
+			"iterationResults": {}
+		},
+		{
+			"name": "Admin - Q3",
+			"id": "b54a5c42-5129-40fa-be17-fc04d80e3fe4",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"21"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "21",
+			"totalRequestTime": "21",
+			"iterationResults": {}
+		},
+		{
+			"name": "Post Category - Avganger",
+			"id": "06cebf3f-be47-403c-9fa9-9f19276fbce0",
+			"url": "http://localhost:5000/api/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"13"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "13",
+			"totalRequestTime": "13",
+			"iterationResults": {}
+		},
+		{
+			"name": "Avganger - Q1",
+			"id": "8c41c84f-c51f-4753-9a19-5adabdce594f",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"21"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "21",
+			"totalRequestTime": "21",
+			"iterationResults": {}
+		},
+		{
+			"name": "Avganger - Q2",
+			"id": "d025d3a6-66a9-4c13-a7e3-0e8b54fd8ee0",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"17"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "17",
+			"totalRequestTime": "17",
+			"iterationResults": {}
+		},
+		{
+			"name": "Avganger - Q3",
+			"id": "808177f4-9013-454e-b5ce-403031fe6e95",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"16"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "16",
+			"totalRequestTime": "16",
+			"iterationResults": {}
+		},
+		{
+			"name": "Post Category - Billett",
+			"id": "0c8422f6-3bf7-44fe-be5b-06950ee7fbca",
+			"url": "http://localhost:5000/api/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "Billett - Q1",
+			"id": "fe08eee4-da0a-454a-80fe-b234b8994f90",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"16"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "16",
+			"totalRequestTime": "16",
+			"iterationResults": {}
+		},
+		{
+			"name": "Billett - Q2",
+			"id": "44082bd1-2707-448a-8f30-ca8209ae02a4",
+			"url": "http://localhost:5000/api/questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"18"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "18",
+			"totalRequestTime": "18",
+			"iterationResults": {}
+		},
+		{
+			"name": "Post Category - Kvittering",
+			"id": "a24804da-3349-4b6b-90f3-498d0229222f",
+			"url": "http://localhost:5000/api/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"12"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "12",
+			"totalRequestTime": "12",
+			"iterationResults": {}
+		},
+		{
+			"name": "Post Category - Stasjoner",
+			"id": "e7f2fd50-e2cb-4231-a0d7-ac1826ac70ed",
+			"url": "http://localhost:5000/api/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get Questions",
+			"id": "3c96293b-3ead-460f-b966-c2641e79ae41",
+			"url": "http://localhost:5000/api/Questions",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"51"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "51",
+			"totalRequestTime": "51",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get Categories",
+			"id": "2d4aa4a3-5c88-4b1a-8bb0-42d53a3fe568",
+			"url": "http://localhost:5000/api/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 565,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Post Category - Admin",
+			"id": "80a9c7d5-f62d-40dd-acf6-d73424bd0004",
+			"url": "http://localhost:5000/api/categories",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Admin - Q1",
+			"id": "ce0836a1-d953-42d8-8f33-af97484d489c",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Admin - Q2",
+			"id": "c3fad9b0-9dcb-43a3-abdb-318350ae31bf",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Admin - Q3",
+			"id": "b54a5c42-5129-40fa-be17-fc04d80e3fe4",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Post Category - Avganger",
+			"id": "06cebf3f-be47-403c-9fa9-9f19276fbce0",
+			"url": "http://localhost:5000/api/categories",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Avganger - Q1",
+			"id": "8c41c84f-c51f-4753-9a19-5adabdce594f",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Avganger - Q2",
+			"id": "d025d3a6-66a9-4c13-a7e3-0e8b54fd8ee0",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Avganger - Q3",
+			"id": "808177f4-9013-454e-b5ce-403031fe6e95",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Post Category - Billett",
+			"id": "0c8422f6-3bf7-44fe-be5b-06950ee7fbca",
+			"url": "http://localhost:5000/api/categories",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Billett - Q1",
+			"id": "fe08eee4-da0a-454a-80fe-b234b8994f90",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Billett - Q2",
+			"id": "44082bd1-2707-448a-8f30-ca8209ae02a4",
+			"url": "http://localhost:5000/api/questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Post Category - Kvittering",
+			"id": "a24804da-3349-4b6b-90f3-498d0229222f",
+			"url": "http://localhost:5000/api/categories",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Post Category - Stasjoner",
+			"id": "e7f2fd50-e2cb-4231-a0d7-ac1826ac70ed",
+			"url": "http://localhost:5000/api/categories",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Get Questions",
+			"id": "3c96293b-3ead-460f-b966-c2641e79ae41",
+			"url": "http://localhost:5000/api/Questions",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "Get Categories",
+			"id": "2d4aa4a3-5c88-4b1a-8bb0-42d53a3fe568",
+			"url": "http://localhost:5000/api/categories",
+			"time": "2019-11-11T12:19:17.773Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}
