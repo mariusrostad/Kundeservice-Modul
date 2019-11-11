@@ -17,7 +17,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.sidebarApiService.getCategories().subscribe((data) => {
-      console.log(data);
       this.categories$ = this.sidebarApiService.getCategories();
     });
   }
