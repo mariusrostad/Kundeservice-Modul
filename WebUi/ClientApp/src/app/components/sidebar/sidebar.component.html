@@ -3,7 +3,7 @@
     <a [routerLink]="['/category/', category.id]">{{ category.name }}</a>
     <ul>
       <li *ngFor="let question of category.questions">
-        <a [routerLink]="['/question/', question.id]">{{ question.name }}</a>
+        <a [routerLink]="['/question/', question.id]">{{ question.message }}</a>
       </li>
     </ul>
   </div>

@@ -42,6 +42,11 @@ namespace WebUi.Controllers
             return question;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<Question>>> Category(int id) {
+            return await _context.Questions.Where(q => q.Category.Id == id).ToListAsync();
+        }
+
         // POST: api/Questions
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 import { Observable } from 'rxjs';
 import { Category } from '../../models/category';
+import { Question } from 'src/app/models/question';
+import { QuestionService } from 'src/app/services/question.service';
 
 @Component({
   selector: 'app-sidebar',

@@ -23,14 +23,30 @@ namespace WebUi.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetCategories()
         {
-            return await _context.Categories.ToListAsync();
+            var categories = await _context.Categories.ToListAsync();
+            var cateogriesDto = new List<CategoryDTO>();
+            foreach(var category in categories) 
+            {
+                var newCategoryDto = new CategoryDTO 
+                {
+                    Id = category.Id,
+                    Name = category.Name
+                };
+                
+                var questions = _context.Questions.Where(q => q.Category.Id == category.Id).ToList();
+                newCategoryDto.Questions = questions;
+
+                cateogriesDto.Add(newCategoryDto);
+            }
+
+            return cateogriesDto;
         }
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<CategoryDTO>> GetCategory(int id)
         {
             var category = await _context.Categories.FindAsync(id);
 
@@ -38,8 +54,14 @@ namespace WebUi.Controllers
             {
                 return NotFound();
             }
+            var questions = await _context.Questions.Where(q => q.Category.Id == id).ToListAsync();
 
-            return category;
+            return new CategoryDTO 
+            {
+                Id = category.Id,
+                Name = category.Name,
+                Questions = questions
+            };
         }
 
         // POST: api/Categories
