@@ -1,0 +1,88 @@
+<!-- main app container -->
+<div class="card m-3">
+  <h5 class="card-header">Nytt spørsmål</h5>
+  <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+              <div class="form-group col">
+                  <label for="category">Kategori</label>
+                  <select formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categories.errors }">
+                    <option *ngFor="let category of (categories | async)" [value]="category">{{ category.name }}</option>
+                  </select>
+                  <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                      <div *ngIf="f.categories.errors.required">Category is required</div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="question">Spørsmål</label>
+              <input type="text" formControlName="question" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Skriv inn spørsmål</div>
+                  <div *ngIf="f.email.errors.email">Ikke en riktig epost</div>
+              </div>
+          </div>
+          <div class="text-center">
+              <button class="btn btn-primary mr-1">Register</button>
+              <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+          </div>
+      </form>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div [hidden]="hidden">
+    <h1>New question</h1>
+    
+    <form [formGroup]="angForm">
+      <input type = "text" 
+            name = "category" 
+            placeholder = "email" 
+            formControlName="email" 
+            #email>
+      <br/>
+      <input type = "password" 
+            name = "pwd" 
+            placeholder = "password" 
+            formControlName="password" 
+            #password>
+      <br/>
+      <input type = "submit" 
+              value = "submit" 
+              (click) = "onClickSubmit(email.value, password.value)" >
+    </form>
+
+    <form (ngSubmit)="onSubmit()" #questionForm="ngForm">
+      <div class="form-group">
+        <label for="category">Kategori</label>
+        <select class="form-control" id="category"
+                required
+                [(ngModel)]="model.category" name="category"
+                #category="ngModel">
+          <option *ngFor="let category of (categories | async)" [value]="category">{{ category.name }}</option>
+        </select>
+        <div [hidden]="category.valid || category.pristine" class="alert alert-danger">
+          Kategori er nødvendig
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <input type="text" 
+              class="form-control" 
+              id="message" 
+              required
+              [(ngModel)]="model.message" 
+              name="message"
+              #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Melding kan ikke være tom
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="submitQuestion(); questionForm.reset()">Nytt spørsmål</button>
+    </form>
+  </div>
+</div> -->

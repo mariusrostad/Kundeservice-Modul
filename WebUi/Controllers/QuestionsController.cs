@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebUi.Model;
+using WebUi.Models;
 using WebUi.Persistence;
 
 namespace WebUi.Controllers
@@ -25,7 +25,7 @@ namespace WebUi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Question>>> GetQuestions()
         {
-            return await _context.Questions.ToListAsync();
+            return await _context.Questions.Include(c => c.Category).ToListAsync();
         }
 
         // GET: api/Questions/5
@@ -42,45 +42,26 @@ namespace WebUi.Controllers
             return question;
         }
 
-        // PUT: api/Questions/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutQuestion(int id, Question question)
-        {
-            if (id != question.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(question).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!QuestionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/Questions
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Question>> PostQuestion(Question question)
+        public async Task<ActionResult<Question>> PostQuestion(QuestionDTO question)
         {
-            _context.Questions.Add(question);
+            if (question.Category == default || question.Message == "")
+            {
+                return NotFound();
+            }
+
+            var category = _context.Categories.Find(question.Category);
+
+            var newQuestion = new Question
+            {
+                Message = question.Message,
+                Category = category
+            };
+
+            _context.Questions.Add(newQuestion);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetQuestion", new { id = question.Id }, question);

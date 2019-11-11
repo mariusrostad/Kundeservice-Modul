@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +15,8 @@ import { AppRoutingModule, RoutingComponents } from './app-routing.module';
       HttpClientModule,
       FormsModule,
       BrowserAnimationsModule,
-      AppRoutingModule
+      AppRoutingModule,
+      ReactiveFormsModule,
    ],
    providers: [],
    bootstrap: [

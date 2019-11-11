@@ -2,7 +2,7 @@
 
 namespace WebUi.Migrations
 {
-    public partial class Initialmodel : Migration
+    public partial class FixedForeignKeyProblem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace WebUi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -20,28 +20,13 @@ namespace WebUi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ratings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Positive = table.Column<int>(nullable: false),
-                    Negative = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ratings", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Message = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: true),
-                    RatingId = table.Column<int>(nullable: true)
+                    CategoryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -52,12 +37,6 @@ namespace WebUi.Migrations
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Questions_Ratings_RatingId",
-                        column: x => x.RatingId,
-                        principalTable: "Ratings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,11 +44,11 @@ namespace WebUi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
                     Message = table.Column<string>(nullable: true),
                     QuestionId = table.Column<int>(nullable: true),
-                    RatingId = table.Column<int>(nullable: true)
+                    Rating = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -80,12 +59,6 @@ namespace WebUi.Migrations
                         principalTable: "Questions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Answers_Ratings_RatingId",
-                        column: x => x.RatingId,
-                        principalTable: "Ratings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -94,19 +67,9 @@ namespace WebUi.Migrations
                 column: "QuestionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Answers_RatingId",
-                table: "Answers",
-                column: "RatingId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Questions_CategoryId",
                 table: "Questions",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Questions_RatingId",
-                table: "Questions",
-                column: "RatingId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -119,9 +82,6 @@ namespace WebUi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "Ratings");
         }
     }
 }

@@ -30,7 +30,8 @@ namespace WebUi
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddDbContext<VyDbContext>(option => option.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<VyDbContext>(option => 
+                option.UseSqlServer(Configuration.GetConnectionString("SqlServerConnectionString")));
             
             services.AddSwaggerGen(c =>
             {
@@ -52,7 +53,7 @@ namespace WebUi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {

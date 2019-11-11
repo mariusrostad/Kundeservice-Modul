@@ -5,10 +5,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionDetailedComponent } from './question-detailed/question-detailed.component';
 import { CategoryDetailedComponent } from './category-detailed/category-detailed.component';
+import { QuestionNewComponent } from './question-new/question-new.component';
 
 const routes: Routes = [
     { path: '', component: QuestionListComponent, pathMatch: 'full' },
     { path: 'category/:id', component: CategoryDetailedComponent, pathMatch: 'full' },
+    { path: 'question/new', component: QuestionNewComponent, pathMatch: 'full' },
     { path: 'question/:id', component: QuestionDetailedComponent, pathMatch: 'full' },
 ];
 
@@ -23,4 +25,5 @@ export const RoutingComponents = [
     QuestionListComponent,
     QuestionDetailedComponent,
     CategoryDetailedComponent,
+    QuestionNewComponent,
 ];
