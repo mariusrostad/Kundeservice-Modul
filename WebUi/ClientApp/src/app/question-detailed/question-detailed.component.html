@@ -5,6 +5,9 @@
     <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
       <p>
         question-detailed works!
-      </p>      
+      </p>
+      <p *ngFor="let question of (question$ | async)">
+        {{ question.message }}
+      </p>
     </div>      
 </div>

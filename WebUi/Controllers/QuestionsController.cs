@@ -32,7 +32,7 @@ namespace WebUi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Question>> GetQuestion(int id)
         {
-            var question = await _context.Questions.FindAsync(id);
+            var question = await _context.Questions.Include(q => q.Category).FirstAsync(q => q.Id == id);
 
             if (question == null)
             {
@@ -42,7 +42,7 @@ namespace WebUi.Controllers
             return question;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("category/{id}")]
         public async Task<ActionResult<IEnumerable<Question>>> Category(int id) {
             return await _context.Questions.Where(q => q.Category.Id == id).ToListAsync();
         }

@@ -1,0 +1,11 @@
+Lage Api FaqController.
+    Include Questions, og Answers i _context query-et.
+
+Opprette en tabell som heter UserQuestion.
+
+Display: Category -> Question -> Answers i home-component.
+
+Sette opp trestrukturen i home-component.
+
+Lage en Readme.txt fil:
+    -> Skrive at koden for errorHandling i api.service.ts filen ikke er skrevet av meg.

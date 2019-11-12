@@ -29,7 +29,7 @@ export class QuestionService {
     );
   }
 
-  getQuestion(categoryId: number): Observable<Question> {
+  getQuestion(categoryId: Number): Observable<Question> {
       return this.http.get<Question>(this.myAppUrl + this.myApiUrl + categoryId)
       .pipe(
         retry(1),
