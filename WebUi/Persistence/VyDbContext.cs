@@ -11,13 +11,11 @@ namespace WebUi.Persistence {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<UserQuestion> UserQuestions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Question>()
-            //    .HasKey(q => q.Id);
-            //modelBuilder.Entity<Category>()
-            //    .HasKey(c => c.Id);
+            
         }
     }
 }

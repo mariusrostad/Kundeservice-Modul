@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, RoutingComponents } from './app-routing.module';
+import { MatTreeModule, MatIconModule, MatButtonModule, MatTree } from '@angular/material';
 
 @NgModule({
    declarations: [
@@ -16,11 +17,12 @@ import { AppRoutingModule, RoutingComponents } from './app-routing.module';
       FormsModule,
       BrowserAnimationsModule,
       AppRoutingModule,
+      MatTreeModule,
+      MatButtonModule,
+      MatIconModule,
       ReactiveFormsModule,
    ],
    providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+   bootstrap: [AppComponent]
 })
 export class AppModule { }
