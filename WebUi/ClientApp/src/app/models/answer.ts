@@ -1,9 +1,8 @@
 import { Category } from './category';
-import { Answer } from './answer';
 
-export class Question {
+export class Answer {
     id: Number;
     message: String;
     category: Category;
-    answer: Answer[];
+    rating: Number;
 }
