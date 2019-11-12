@@ -6,9 +6,10 @@ import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionDetailedComponent } from './question-detailed/question-detailed.component';
 import { CategoryDetailedComponent } from './category-detailed/category-detailed.component';
 import { QuestionNewComponent } from './question-new/question-new.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-    { path: '', component: QuestionListComponent, pathMatch: 'full' },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'category/:id', component: CategoryDetailedComponent, pathMatch: 'full' },
     { path: 'question/new', component: QuestionNewComponent, pathMatch: 'full' },
     { path: 'question/:id', component: QuestionDetailedComponent, pathMatch: 'full' },
@@ -26,4 +27,5 @@ export const RoutingComponents = [
     QuestionDetailedComponent,
     CategoryDetailedComponent,
     QuestionNewComponent,
+    HomeComponent,
 ];
