@@ -15,7 +15,24 @@ namespace WebUi.Persistence {
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            var questionsTest = new List<Question>();
+            var q1 = new Question 
+            {
+                Id = -1,
+                Message = "Hello World"
+            };
+            questionsTest.Add(q1);
+
+            modelBuilder.Entity<Category>()
+                .Property(c => c.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Category>().HasData(
+                new Category 
+                {
+                    Id = -1,
+                    Name = "Test 1"
+                }
+            );
         }
     }
 }

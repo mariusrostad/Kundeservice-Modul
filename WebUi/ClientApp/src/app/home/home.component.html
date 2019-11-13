@@ -2,45 +2,59 @@
   <div class="row">
 
     <div id="faq" class="width-100">
-        <div class="card"  *ngFor="let category of (categories | async)">
-            <!-- Category -->
-            <div class="card-header width-100">
-              <h5 class="mb-0">
-                <button class="btn btn-secondary btn-lg btn-block" type="button" data-toggle="collapse" [attr.data-target]="'#category-collapse-' + category.id" aria-expanded="false" [attr.aria-controls]="'category-collapse-' + category.id">
-                  {{ category.name }}
-                </button>
-              </h5>
-            </div>
-        
-            <div id="category-collapse-{{ category.id }}" class="collapse" data-parent="#faq">
-              <!-- No questions message -->
-              <div class="card-body" *ngIf="category.questions.length < 1">
-                <p>Ingen spørsmål for denne kategorien. Vennligst fyll ut sjemaet søverst på siden for å stille egne sprøsmål</p>
-              </div>
-              <!-- Questions of a category -->
-              <div *ngIf="category.questions.length > 1">
-                <div *ngFor="let question of category.questions" class="accordion width-100">
-                  <div class="accordion" id="question-{{ question.id }}">
-                    <div class="card">
-                      <div class="card-header width-100" id="question-{{ question.id }}">
-                        <h5 class="mb-0">
-                          <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse-question-' + question.id" aria-expanded="false" [attr.aria-controls]="'collapse-question-' + category.id">
-                            {{ question.message }}
-                          </button>
-                        </h5>
-                      </div>
-                      <!-- Answer to question -->
-                      <div id="collapse-question-{{ question.id }}" class="collapse" [attr.aria-labelledby]="'question-' + question.id" [attr.data-parent]="'#question-' + question.id">
-                        <div class="card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <!-- Category -->
+      <div class="card"  *ngFor="let category of (categories | async)">
+        <div class="card-header width-100">
+          <h5 class="mb-0">
+            <button class="btn btn-secondary btn-lg btn-block" type="button" data-toggle="collapse" [attr.data-target]="'#category-collapse-' + category.id" aria-expanded="false" [attr.aria-controls]="'category-collapse-' + category.id">
+              {{ category.name }}
+            </button>
+          </h5>
+        </div>
+    
+        <div id="category-collapse-{{ category.id }}" class="collapse" data-parent="#faq">
+          <!-- No questions message -->
+          <div class="card-body" *ngIf="category.questions.length < 1; else questionsBox">
+            <p>Fant ingen spørsmål. Fyll ut spørsmål sjemaet øverst på siden hvis du ønsker svar på noe.</p>
+          </div>
+          <!-- Questions of a category -->
+          <ng-template #questionsBox>
+            <div id="category-{{category.id}}-questions" class="width-100">
+                <div class="card" *ngFor="let question of category.questions">
+                  <div class="card-header width-100">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" 
+                        type="button" 
+                        data-toggle="collapse" 
+                        [attr.data-target]="'#collapse-question-' + question.id" 
+                        aria-expanded="false" 
+                        [attr.aria-controls]="'collapse-question-' + category.id">
+                        {{ question.message }}
+                      </button>
+                    </h5>
+                  </div>
+                  <!-- Answer to question -->
+                  <div 
+                    id="collapse-question-{{ question.id }}" 
+                    class="collapse" 
+                    [attr.data-parent]="'#category-' + category.id + '-questions'">
+                    <div class="card-body">
+                      <p>Ingen svar på spørsmål</p>
+                      <!-- <p *ngIf="question.answers.length < 1; else answerBox">Ingen svar på dette spørsmålet</p> -->
+                      <!-- <ng-template #answerBox>
+                        <div *ngFor="let answer of question.answers">
+                            <p>
+                              {{ answer.message }}
+                            </p>  
                         </div>
-                      </div>
+                      </ng-template> -->
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+          </ng-template>
+        </div>
+      </div>
     </div>
   </div>
 </div>

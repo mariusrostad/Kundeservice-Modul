@@ -5,5 +5,5 @@ export class Question {
     id: Number;
     message: String;
     category: Category;
-    answer: Answer[];
+    answers: Answer[];
 }
