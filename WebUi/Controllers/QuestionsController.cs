@@ -25,14 +25,14 @@ namespace WebUi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Question>>> GetQuestions()
         {
-            return await _context.Questions.Include(c => c.Category).ToListAsync();
+            return await _context.Questions.ToListAsync();
         }
 
         // GET: api/Questions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Question>> GetQuestion(int id)
         {
-            var question = await _context.Questions.Include(q => q.Category).FirstAsync(q => q.Id == id);
+            var question = await _context.Questions.Include(q => q.Category).FirstAsync(q => q.QuestionId == id);
 
             if (question == null)
             {
@@ -44,7 +44,7 @@ namespace WebUi.Controllers
 
         [HttpGet("category/{id}")]
         public async Task<ActionResult<IEnumerable<Question>>> Category(int id) {
-            return await _context.Questions.Where(q => q.Category.Id == id).ToListAsync();
+            return await _context.Questions.Where(q => q.Category.CategoryId == id).ToListAsync();
         }
 
         // POST: api/Questions
@@ -90,7 +90,7 @@ namespace WebUi.Controllers
 
         private bool QuestionExists(int id)
         {
-            return _context.Questions.Any(e => e.Id == id);
+            return _context.Questions.Any(e => e.QuestionId == id);
         }
     }
 }

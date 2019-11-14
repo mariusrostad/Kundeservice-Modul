@@ -23,19 +23,20 @@ namespace WebUi.Controllers
 
         // GET: api/Faq
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetFaq()
+        public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetFaqs()
         {
             var categories = await _context.Categories.ToListAsync();
+
             var cateogriesDto = new List<CategoryDTO>();
-            foreach(var category in categories) 
+            foreach (var category in categories)
             {
-                var newCategoryDto = new CategoryDTO 
+                var newCategoryDto = new CategoryDTO
                 {
-                    Id = category.Id,
+                    CategoryId = category.CategoryId,
                     Name = category.Name
                 };
-                
-                var questions = _context.Questions.Where(q => q.Category.Id == category.Id).Include(q => q.Answers).ToList();
+
+                var questions = _context.Questions.Where(q => q.CategoryId == category.CategoryId).ToList();
 
                 newCategoryDto.Questions = questions;
 
