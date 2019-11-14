@@ -18,7 +18,7 @@ export class CategoryService {
   };
   constructor(private http: HttpClient) {
       this.myAppUrl = environment.appUrl;
-      this.myApiUrl = 'api/Categories/';
+      this.myApiUrl = 'api/Faq/';
   }
 
   getCategories(): Observable<Category[]> {

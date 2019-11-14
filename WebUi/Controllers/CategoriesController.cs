@@ -31,11 +31,11 @@ namespace WebUi.Controllers
             {
                 var newCategoryDto = new CategoryDTO 
                 {
-                    Id = category.Id,
+                    CategoryId = category.CategoryId,
                     Name = category.Name
                 };
                 
-                var questions = _context.Questions.Where(q => q.Category.Id == category.Id).ToList();
+                var questions = _context.Questions.Where(q => q.Category.CategoryId == category.CategoryId).ToList();
                 newCategoryDto.Questions = questions;
 
                 cateogriesDto.Add(newCategoryDto);
@@ -54,11 +54,11 @@ namespace WebUi.Controllers
             {
                 return NotFound();
             }
-            var questions = await _context.Questions.Where(q => q.Category.Id == id).ToListAsync();
+            var questions = await _context.Questions.Where(q => q.Category.CategoryId == id).ToListAsync();
 
             return new CategoryDTO 
             {
-                Id = category.Id,
+                CategoryId = category.CategoryId,
                 Name = category.Name,
                 Questions = questions
             };
@@ -73,7 +73,7 @@ namespace WebUi.Controllers
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
         }
 
         // DELETE: api/Categories/5
