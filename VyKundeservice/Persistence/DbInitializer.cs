@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using WebUi.Models;
 
-namespace WebUi.Persistence
+namespace VyKundeservice.Persistence
 {
     public class DbInitializer
     {

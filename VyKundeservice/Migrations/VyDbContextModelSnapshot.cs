@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebUi.Persistence;
+using VyKundeservice.Persistence;
 
-namespace WebUi.Migrations
+namespace VyKundeservice.Migrations
 {
     [DbContext(typeof(VyDbContext))]
     partial class VyDbContextModelSnapshot : ModelSnapshot

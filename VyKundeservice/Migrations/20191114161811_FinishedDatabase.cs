@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebUi.Migrations
+namespace VyKundeservice.Migrations
 {
-    public partial class FixedRelations : Migration
+    public partial class FinishedDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

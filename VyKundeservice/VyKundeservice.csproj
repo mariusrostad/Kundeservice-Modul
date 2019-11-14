@@ -43,6 +43,8 @@
     <Compile Remove="Migrations\20191114141746_DbModel.Designer.cs" />
     <Compile Remove="Migrations\20191114143737_AddedRelationsApi.cs" />
     <Compile Remove="Migrations\20191114143737_AddedRelationsApi.Designer.cs" />
+    <Compile Remove="Migrations\20191114144709_FixedRelations.cs" />
+    <Compile Remove="Migrations\20191114144709_FixedRelations.Designer.cs" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

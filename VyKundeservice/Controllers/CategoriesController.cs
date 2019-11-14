@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using VyKundeservice.Persistence;
 using WebUi.Models;
-using WebUi.Persistence;
 
-namespace WebUi.Controllers
+namespace VyKundeservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

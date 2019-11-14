@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebUi.Models;
 
-namespace WebUi.Persistence {
+namespace VyKundeservice.Persistence {
     public class VyDbContext : DbContext {
         public VyDbContext(DbContextOptions<VyDbContext> options) : base(options)
         {}

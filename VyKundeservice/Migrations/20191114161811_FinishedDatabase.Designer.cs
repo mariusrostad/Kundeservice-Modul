@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebUi.Persistence;
+using VyKundeservice.Persistence;
 
-namespace WebUi.Migrations
+namespace VyKundeservice.Migrations
 {
     [DbContext(typeof(VyDbContext))]
-    [Migration("20191114144709_FixedRelations")]
-    partial class FixedRelations
+    [Migration("20191114161811_FinishedDatabase")]
+    partial class FinishedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
