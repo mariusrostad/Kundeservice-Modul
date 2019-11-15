@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
 
+    <app-question-form [categories]="categories"></app-question-form>
+
     <div id="faq" class="width-100">
       <!-- Category -->
-      <div class="card"  *ngFor="let category of (categories | async)">
+      <div class="card"  *ngFor="let category of categories">
         <div class="card-header width-100">
           <h5 class="mb-0">
             <button 

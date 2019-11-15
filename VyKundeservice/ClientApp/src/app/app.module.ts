@@ -20,9 +20,11 @@ import { MatTreeModule, MatIconModule, MatButtonModule, MatTree } from '@angular
       MatTreeModule,
       MatButtonModule,
       MatIconModule,
-      ReactiveFormsModule,
+      ReactiveFormsModule
    ],
    providers: [],
-   bootstrap: [AppComponent]
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
