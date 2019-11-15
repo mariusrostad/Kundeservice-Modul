@@ -1,6 +1,8 @@
 <div class="container" [hidden]="submitted">
+    <button [hidden]="!submitted" (click)="showForm()">Still spørsmål</button>
     <h1>Question form</h1>
-    <form (ngSubmit)="onSubmit()" #questionForm="ngForm">
+    <form (ngSubmit)="onSubmit(questionForm)" #questionForm="ngForm">
+
       {{diagnostic}}
       <div class="form-group">
         <label for="question">Spørsmål</label>

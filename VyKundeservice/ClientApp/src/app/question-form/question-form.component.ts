@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, NgForm } from '@angular/forms';
 import { UserQuestion } from '../models/user-question';
 import { Category } from '../models/category';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-question-form',
@@ -10,19 +11,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./question-form.component.css']
 })
 export class QuestionFormComponent implements OnInit {
-  form: FormGroup;
   submitted = false;
 
   model = new UserQuestion('', 0);
 
   constructor(
-    public formGroup: FormBuilder,
+    // public formGroup: FormBuilder,
     private http: HttpClient,
   ) {
-    this.form = this.formGroup.group({
-      question: [''],
-      category: [null]
-    });
   }
 
   @Input() categories: Category[];
@@ -30,18 +26,26 @@ export class QuestionFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  showForm() {
+    this.submitted = false;
+  }
+
   newQuestion() {
     this.model = new UserQuestion('', null);
   }
 
-  onSubmit() {
-    // this.submitted = true;
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      this.submitted = true;
+    } else {
+      return;
+    }
 
     const formData: any = new FormData();
-    formData.append('question', this.form.get('question').value);
-    formData.append('category', this.form.get('category').value);
+    formData.append('question', form.form.get('question').value);
+    formData.append('category', form.form.get('category').value);
 
-    this.http.post('http://localhost:5000/api/userquestion', formData).subscribe(
+    this.http.post(environment.appUrl + 'api/faq', formData).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
