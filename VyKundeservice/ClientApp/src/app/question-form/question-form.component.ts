@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class QuestionFormComponent implements OnInit {
   submitted = false;
 
-  model = new UserQuestion('', 0);
+  model = new UserQuestion('', null);
 
   constructor(
     // public formGroup: FormBuilder,
