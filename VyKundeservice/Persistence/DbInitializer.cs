@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using WebUi.Models;
+using VyKundeservice.Models;
 
 namespace VyKundeservice.Persistence
 {

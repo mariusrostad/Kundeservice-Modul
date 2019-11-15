@@ -1,4 +1,4 @@
-namespace WebUi.Models 
+namespace VyKundeservice.Models 
 {
     public class UserQuestion
     {

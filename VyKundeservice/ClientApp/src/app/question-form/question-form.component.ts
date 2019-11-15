@@ -17,7 +17,7 @@ export class QuestionFormComponent implements OnInit {
 
   constructor(
     // public formGroup: FormBuilder,
-    private http: HttpClient,
+    private http: HttpClient
   ) {
   }
 
@@ -45,7 +45,7 @@ export class QuestionFormComponent implements OnInit {
     formData.append('question', form.form.get('question').value);
     formData.append('category', form.form.get('category').value);
 
-    this.http.post(environment.appUrl + 'api/faq', formData).subscribe(
+    this.http.post(environment.appUrl + 'api/userquestions', formData).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );

@@ -3,7 +3,7 @@ export class UserQuestion {
     private category: Number;
     constructor(
         question: String,
-        category: Number,
+        category: Number
     ) {
         this.category = category;
         this.question = question;

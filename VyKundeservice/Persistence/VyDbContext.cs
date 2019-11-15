@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WebUi.Models;
+using VyKundeservice.Models;
 
 namespace VyKundeservice.Persistence {
     public class VyDbContext : DbContext {

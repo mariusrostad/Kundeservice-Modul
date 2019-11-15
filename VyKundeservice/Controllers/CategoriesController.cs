@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VyKundeservice.Persistence;
-using WebUi.Models;
+using VyKundeservice.Models;
 
 namespace VyKundeservice.Controllers
 {
