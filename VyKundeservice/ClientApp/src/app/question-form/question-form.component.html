@@ -1,35 +1,42 @@
 <div class="container" [hidden]="submitted">
-    <button [hidden]="!submitted" (click)="showForm()">Still spørsmål</button>
-    <h1>Question form</h1>
-    <form (ngSubmit)="onSubmit(questionForm)" #questionForm="ngForm">
-
-      {{diagnostic}}
+  <h1>Question form</h1>
+  
+  <form [formGroup]="userQuestionForm" (ngSubmit)="onSubmit()">
+      <input class="form-control" formControlName="id" type="hidden" />
       <div class="form-group">
-        <label for="question">Spørsmål</label>
-        <input type="text" class="form-control" id="question"
-          required
-          [(ngModel)]="model.question" name="question" #question="ngModel">
-          <div [hidden]="question.valid || question.pristine"
-              class="alert alert-danger">
-            Må skrive ett spørsmål
-          </div>
+          <label>Fornavn</label>
+          <input class="form-control" formControlName="firstname" />
+          <p class="alert alert-warning" [hidden]="userQuestionForm.controls.firstname.valid || (userQuestionForm.controls.firstname.pristine && !submitted)">
+             Fornavn er obligatorisk.
+          </p>
       </div>
-
       <div class="form-group">
-        <label for="category">Kategori</label>
-        <select class="form-control"  id="category"
-          required
-          [(ngModel)]="model.category" name="category" #category="ngModel">
+          <label>Etternavn</label>
+          <input class="form-control" formControlName="lastname" />
+          <p class="alert alert-warning"
+              [hidden]="userQuestionForm.controls.lastname.valid || userQuestionForm.controls.lastname.pristine">
+              Etternavn er obligatorisk.
+          </p>
+      </div>
+      <div class="form-group">
+          <label>Spørsmål</label>
+          <input class="form-control" formControlName="question" />
+          <p class="alert alert-warning" [hidden]="userQuestionForm.controls.question.valid || (userQuestionForm.controls.question.pristine && !submitted)">
+              Spørsmål er obligatorisk.
+          </p>
+      </div>
+      <div class="form-group">
+          <label>Kategori</label>
+          <select class="form-control" id="category" formControlName="category">
           <option *ngFor="let category of categories" [value]="category.categoryId">{{category.name}}</option>
         </select>
-        <div [hidden]="category.valid || category.pristine"
-              class="alert alert-danger">
-            Velg en kategori
-          </div>
+          <p class="alert alert-warning" [hidden]="userQuestionForm.controls.category.valid || (userQuestionForm.controls.category.pristine && !submitted)">
+              Kategori er obligatorisk
+          </p>
       </div>
-
-      <button type="submit" class="btn btn-success" [disabled]="!questionForm.form.valid || model.category == 0">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newQuestion(); questionForm.reset()">Reset feltene</button>
-
-    </form>
+      <div class="form-group">
+        <button class="btn btn-success" type="submit" [disabled]="!skjema.valid">Send inn</button>
+        <button class="btn btn-default" (click)="resetForm()">Reset felter</button>
+      </div>
+  </form>
 </div>

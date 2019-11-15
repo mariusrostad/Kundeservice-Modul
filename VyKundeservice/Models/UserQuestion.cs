@@ -4,6 +4,7 @@ namespace VyKundeservice.Models
     {
         public int UserQuestionId { get; set; }
         public string Question { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
 }
