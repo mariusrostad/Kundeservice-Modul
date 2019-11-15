@@ -39,7 +39,7 @@ export class QuestionFormComponent implements OnInit {
 
     const formData: any = new FormData();
     formData.append('question', this.form.get('question').value);
-    formData.append('category', this.form.get('question').value);
+    formData.append('category', this.form.get('category').value);
 
     this.http.post('http://localhost:5000/api/userquestion', formData).subscribe(
       (response) => console.log(response),
