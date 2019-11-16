@@ -22,39 +22,14 @@ export class CategoryService {
   }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.myAppUrl + this.myApiUrl)
-    .pipe(
-      retry(1),
-      catchError(this.errorHandler)
-    );
+    return this.http.get<Category[]>(this.myAppUrl + this.myApiUrl);
   }
 
   getCategory(categoryId: number): Observable<Category> {
-      return this.http.get<Category>(this.myAppUrl + this.myApiUrl + categoryId)
-      .pipe(
-        retry(1),
-        catchError(this.errorHandler)
-      );
+      return this.http.get<Category>(this.myAppUrl + this.myApiUrl + categoryId);
   }
 
   saveCategory(category: any): Observable<Category> {
-      return this.http.post<Category>(this.myAppUrl + this.myApiUrl, JSON.stringify(category), this.httpOptions)
-      .pipe(
-        retry(1),
-        catchError(this.errorHandler)
-      );
-  }
-
-  errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
+      return this.http.post<Category>(this.myAppUrl + this.myApiUrl, JSON.stringify(category), this.httpOptions);
   }
 }
