@@ -1,7 +1,7 @@
 export class UserQuestion {
-    id: Number;
-    firstname: String;
-    lastname: String;
-    question: String;
-    category: Number;
+    id: number;
+    firstname: string;
+    lastname: string;
+    question: string;
+    categoryId: number;
 }

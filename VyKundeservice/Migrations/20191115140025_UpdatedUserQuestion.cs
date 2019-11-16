@@ -2,7 +2,7 @@
 
 namespace VyKundeservice.Migrations
 {
-    public partial class FinishedDatabase : Migration
+    public partial class UpdatedUserQuestion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,20 +44,22 @@ namespace VyKundeservice.Migrations
                 name: "UserQuestions",
                 columns: table => new
                 {
-                    UserQuestionId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Firstname = table.Column<string>(nullable: true),
+                    Lastname = table.Column<string>(nullable: true),
                     Question = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: true)
+                    CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserQuestions", x => x.UserQuestionId);
+                    table.PrimaryKey("PK_UserQuestions", x => x.Id);
                     table.ForeignKey(
                         name: "FK_UserQuestions_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

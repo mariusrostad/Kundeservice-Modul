@@ -19,17 +19,17 @@ export class QuestionFormComponent implements OnInit {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8'
+      'Content-Type': 'application/json',
     })
   };
 
   constructor(private _http: HttpClient, private fb: FormBuilder, private userQuestionService: UserQuestionService) {
       this.userQuestionForm = fb.group({
-          id: [''],
-          firstname: [null, Validators.compose([Validators.required, Validators.pattern('[a-zA-ZøæåØÆÅ\\-. ]{2,30}')])],
-          lastname: [null, Validators.compose([Validators.required, Validators.pattern('[a-zA-ZøæåØÆÅ\\-. ]{2,30}')])],
-          question: [null, Validators.compose([Validators.required, Validators.pattern('[0-9a-zA-ZøæåØÆÅ\\-. ]{2,30}')])],
-          category: [null, Validators.compose([Validators.required, Validators.pattern('[0-9]')])],
+          id: [0],
+          firstname: [null, Validators.compose([Validators.required, Validators.pattern('[a-zA-ZøæåØÆÅ ]{1,30}')])],
+          lastname: [null, Validators.compose([Validators.required, Validators.pattern('[a-zA-ZøæåØÆÅ\\-. ]{1,30}')])],
+          question: [null, Validators.compose([Validators.required, Validators.pattern('[0-9a-zA-ZøæåØÆÅ\\-.?\' ]{2,}')])],
+          categoryId: [null, Validators.compose([Validators.required, Validators.pattern('[0-9]')])],
       });
       this.myAppUrl = environment.appUrl;
       this.myApiUrl = 'api/UserQuestions/';
@@ -47,18 +47,18 @@ export class QuestionFormComponent implements OnInit {
   onSubmit() {
     const userQuestion = new UserQuestion();
 
+    userQuestion.id = +0;
     userQuestion.firstname = this.userQuestionForm.value.firstname;
     userQuestion.lastname = this.userQuestionForm.value.lastname;
     userQuestion.question = this.userQuestionForm.value.question;
-    userQuestion.category = this.userQuestionForm.value.category;
+    userQuestion.categoryId = +this.userQuestionForm.value.categoryId;
 
     const body: string = JSON.stringify(userQuestion);
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    this._http.post(this.myApiUrl + this.myAppUrl, body, { headers: headers })
+    this._http.post('http://localhost:5000/api/UserQuestions/', body, this.httpOptions)
         .subscribe(
-          error => alert(error),
-          () => console.log('ferdig post-api/kunde')
+          data => console.log(data),
+          (error) => console.log(error)
     );
     this.userQuestionForm.reset();
   }

@@ -5,12 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VyKundeservice.Models;
 using VyKundeservice.Persistence;
+using System.Data.Common;
+using System.Linq;
+using System.Web;
 
 namespace VyKundeservice.Controllers 
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserQuestionsController : ControllerBase
+    public class UserQuestionsController : Controller
     {
         private readonly VyDbContext _context;
 
@@ -31,32 +34,54 @@ namespace VyKundeservice.Controllers
             return await _context.UserQuestions.FindAsync(id);
         }
 
+        // POST api/Kunde
         [HttpPost]
-        public async Task<ActionResult<Question>> PostQuestion([FromBody]UserQuestionDTO userQuestion) 
+        public ActionResult<UserQuestion> Post([FromBody]userquestion inUserQuestion)
         {
-            if (userQuestion.category == default || userQuestion.question == "")
+            
+            if (ModelState.IsValid)
             {
-               Console.WriteLine("NotFound(): Category or Question is not set!");
-               return NotFound();
-            }
+                var userQuestion = new UserQuestion
+                {
+                    Firstname = inUserQuestion.firstname,
+                    Lastname = inUserQuestion.lastname,
+                    Question = inUserQuestion.question,
+                    CategoryId = inUserQuestion.categoryId
+                };
 
-            var newQuestion = new UserQuestion
-            {
-                Question = userQuestion.question,
-                CategoryId = userQuestion.category
-            };
-
-            _context.UserQuestions.Add(newQuestion);
-            try
-            {
-                await _context.SaveChangesAsync();
-                Console.WriteLine("Added to db");
+                try
+                {
+                    // lagre kunden
+                    _context.UserQuestions.Add(userQuestion);
+                    _context.SaveChanges();
+                    return userQuestion;
+                }
+                catch (Exception)
+                {
+                    return NotFound();
+                }
             }
-            catch (DbUpdateException)
-            {
-                Console.WriteLine("Could not save");
-            }
-            return CreatedAtAction("GetUserQuestion", new { id = newQuestion.UserQuestionId }, newQuestion);
+            return NotFound();
         }
+
+        // [HttpPost]
+        // public async Task<ActionResult<Question>> PostQuestion([FromBody]UserQuestionDTO userQuestion) 
+        // {
+        //     if (ModelState.IsValid)
+        //     {
+        //         var newQuestion = new UserQuestion
+        //         {
+        //             Firstname = userQuestion.firstname,
+        //             Lastname = userQuestion.lastname,
+        //             Question = userQuestion.question,
+        //             CategoryId = userQuestion.categoryId
+        //         };
+        //         _context.UserQuestions.Add(newQuestion);
+            
+        //         await _context.SaveChangesAsync();
+        //         return CreatedAtAction("GetUserQuestion", new { id = newQuestion.Id }, newQuestion);
+        //     }
+        //     return NotFound();
+        // }
     }
 }
