@@ -10,7 +10,7 @@ import { MatTreeModule, MatIconModule, MatButtonModule, MatTree } from '@angular
 @NgModule({
    declarations: [
       AppComponent,
-      RoutingComponents,
+      RoutingComponents
    ],
    imports: [
       HttpClientModule,
