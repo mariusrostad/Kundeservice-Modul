@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, NgForm, Validators } from '@angular/forms';
-import { UserQuestion } from '../models/user-question';
+import { UserQuestionDTO } from '../models/user-question';
 import { Category } from '../models/category';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -28,7 +28,7 @@ export class QuestionFormComponent implements OnInit {
           id: [0],
           firstname: [null, Validators.compose([Validators.required, Validators.pattern('[a-zA-ZøæåØÆÅ ]{1,30}')])],
           lastname: [null, Validators.compose([Validators.required, Validators.pattern('[a-zA-ZøæåØÆÅ\\-. ]{1,30}')])],
-          question: [null, Validators.compose([Validators.required, Validators.pattern('[0-9a-zA-ZøæåØÆÅ\\-.?\' ]{2,}')])],
+          question: [null, Validators.compose([Validators.required, Validators.pattern('[0-9a-zA-ZøæåØÆÅ\\-. ?!#%&,_<>\"@$()=\/]{2,}')])],
           categoryId: [null, Validators.compose([Validators.required, Validators.pattern('[0-9]')])],
       });
       this.myAppUrl = environment.appUrl;
@@ -45,7 +45,7 @@ export class QuestionFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const userQuestion = new UserQuestion();
+    const userQuestion = new UserQuestionDTO();
 
     userQuestion.id = +0;
     userQuestion.firstname = this.userQuestionForm.value.firstname;

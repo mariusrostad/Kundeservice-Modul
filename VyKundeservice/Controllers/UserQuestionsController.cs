@@ -25,13 +25,13 @@ namespace VyKundeservice.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserQuestion>>> GetUserQuestions()
         {
-            return await _context.UserQuestions.ToListAsync();
+            return await _context.UserQuestions.Include(uq => uq.Category).ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<UserQuestion>> GetUserQuestion(int id) 
         {
-            return await _context.UserQuestions.FindAsync(id);
+            return await _context.UserQuestions.Include(uq => uq.Category).SingleAsync(uq => uq.Id == id);
         }
 
         // POST api/Kunde
@@ -54,7 +54,7 @@ namespace VyKundeservice.Controllers
                     // lagre kunden
                     _context.UserQuestions.Add(userQuestion);
                     _context.SaveChanges();
-                    return userQuestion;
+                    return CreatedAtAction("GetUserQuestion", new { id = userQuestion.Id }, userQuestion);
                 }
                 catch (Exception)
                 {
