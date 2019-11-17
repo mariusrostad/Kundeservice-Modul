@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   categories: Category[];
+  allreadyVoted: Array<Number> = [];
 
   constructor(private categoryService: CategoryService, private ratingService: RatingService, private http: HttpClient) { }
 
@@ -25,16 +26,34 @@ export class HomeComponent implements OnInit {
   }
 
   like(id: number) {
-    const returnFlag = this.ratingService.like(id);
-    if (returnFlag) {
-      this.changeRating(id, true);
+    let used = false;
+    this.allreadyVoted.forEach(element => {
+      if (element === id) {
+        used = true;
+        return;
+      }
+    });
+    if (!used) {
+      const returnFlag = this.ratingService.like(id);
+      if (returnFlag) {
+        this.changeRating(id, true);
+      }
     }
   }
 
   dislike(id: number) {
-    const returnFlag = this.ratingService.dislike(id);
-    if (returnFlag) {
-      this.changeRating(id, false);
+    let used = false;
+    this.allreadyVoted.forEach(element => {
+      if (element === id) {
+        used = true;
+        return;
+      }
+    });
+    if (!used) {
+      const returnFlag = this.ratingService.dislike(id);
+      if (returnFlag) {
+        this.changeRating(id, false);
+      }
     }
   }
 
@@ -50,5 +69,7 @@ export class HomeComponent implements OnInit {
     let value = parseInt(question.innerText, 10);
     value++;
     question.innerText = value.toString();
+
+    this.allreadyVoted.push(id);
   }
 }
