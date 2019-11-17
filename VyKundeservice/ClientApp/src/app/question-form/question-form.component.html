@@ -1,6 +1,9 @@
-<div class="container" [hidden]="submitted">
-    <h1>Question form</h1>
-    <form [formGroup]="userQuestionForm" (ngSubmit)="onSubmit()">
+<button class="btn btn-primary question-button" type="button" data-toggle="collapse" data-target="#questionForm" aria-expanded="false" aria-controls="questionForm">
+    Still spørsmål
+</button>
+<div class="collapse" id="questionForm">
+    <div class="card card-body">
+        <form [formGroup]="userQuestionForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col">
                     <label>Fornavn</label>
@@ -38,5 +41,8 @@
                 <button class="btn btn-success" type="submit" [disabled]="!userQuestionForm.valid">Send inn</button>
                 <button class="btn btn-default" (click)="resetForm()">Reset felter</button>
             </div>
-    </form>
+        </form>
+    </div>
 </div>
+
+

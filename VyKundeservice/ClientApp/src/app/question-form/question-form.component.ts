@@ -12,7 +12,6 @@ import { UserQuestionService } from '../services/user-question.service';
   styleUrls: ['./question-form.component.css']
 })
 export class QuestionFormComponent implements OnInit {
-  submitted = false;
   userQuestionForm: FormGroup;
   myAppUrl: string;
   myApiUrl: string;
@@ -38,10 +37,6 @@ export class QuestionFormComponent implements OnInit {
   @Input() categories: Category[];
 
   ngOnInit() {
-  }
-
-  showForm() {
-    this.submitted = false;
   }
 
   onSubmit() {
