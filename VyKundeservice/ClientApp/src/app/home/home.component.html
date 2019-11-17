@@ -29,17 +29,20 @@
                 <div id="category-{{category.categoryId}}-questions" class="width-100">
                   <div class="card" *ngFor="let question of category.questions">
                     <div class="card-header width-100">
-                      <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: baseline;">
-                        <button class="btn btn-link" 
-                        style="align-self: flex-start;"
-                          type="button" 
-                          data-toggle="collapse" 
-                          [attr.data-target]="'#question-' + question.questionId">
-                          {{ question.message }}
+                      <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                        <button class="btn btn-link"
+                        type="button" 
+                        data-toggle="collapse" 
+                        [attr.data-target]="'#question-' + question.questionId">
+                        {{ question.message }}
                         </button>
-                        <p style="padding: .375rem .75rem; margin-bottom: 0; align-self: flex-end;">
-                          Likes: {{ question.likes }}
-                          Dislikes: {{ question.dislikes }}
+                        <p style="margin-bottom: 0;">
+                          <button (click)="like(question.questionId)" type="button" class="btn btn-light">
+                            <span class="oi oi-thumb-up" id="question-{{ question.questionId }}-likes">{{ question.likes }}</span> 
+                          </button>
+                          <button (click)="dislike(question.questionId)" type="button" class="btn btn-light">
+                            <span class="oi oi-thumb-down" id="question-{{ question.questionId }}-dislikes">{{ question.dislikes }}</span>
+                          </button>
                         </p>
                       </div>
                     </div>
