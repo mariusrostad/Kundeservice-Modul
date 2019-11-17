@@ -63,25 +63,5 @@ namespace VyKundeservice.Controllers
             }
             return NotFound();
         }
-
-        // [HttpPost]
-        // public async Task<ActionResult<Question>> PostQuestion([FromBody]UserQuestionDTO userQuestion) 
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         var newQuestion = new UserQuestion
-        //         {
-        //             Firstname = userQuestion.firstname,
-        //             Lastname = userQuestion.lastname,
-        //             Question = userQuestion.question,
-        //             CategoryId = userQuestion.categoryId
-        //         };
-        //         _context.UserQuestions.Add(newQuestion);
-            
-        //         await _context.SaveChangesAsync();
-        //         return CreatedAtAction("GetUserQuestion", new { id = newQuestion.Id }, newQuestion);
-        //     }
-        //     return NotFound();
-        // }
     }
 }
