@@ -2,7 +2,7 @@
 
 namespace VyKundeservice.Migrations
 {
-    public partial class UpdatedUserQuestion : Migration
+    public partial class AddedRatingToQuestions : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,9 @@ namespace VyKundeservice.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Message = table.Column<string>(nullable: true),
                     Answer = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false),
+                    Likes = table.Column<int>(nullable: false),
+                    Dislikes = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

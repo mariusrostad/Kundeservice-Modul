@@ -9,8 +9,8 @@ using VyKundeservice.Persistence;
 namespace VyKundeservice.Migrations
 {
     [DbContext(typeof(VyDbContext))]
-    [Migration("20191115140025_UpdatedUserQuestion")]
-    partial class UpdatedUserQuestion
+    [Migration("20191117115708_AddedRatingToQuestions")]
+    partial class AddedRatingToQuestions
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,12 @@ namespace VyKundeservice.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Dislikes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Likes")
                         .HasColumnType("int");
 
                     b.Property<string>("Message")

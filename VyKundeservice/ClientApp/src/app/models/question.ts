@@ -5,5 +5,8 @@ export class Question {
     message: String;
     answer: String;
     categoryId: Number;
+    likes: Number;
+    disliked: Number;
+
     category: Category;
 }
