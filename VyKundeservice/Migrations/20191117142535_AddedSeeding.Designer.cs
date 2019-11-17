@@ -9,8 +9,8 @@ using VyKundeservice.Persistence;
 namespace VyKundeservice.Migrations
 {
     [DbContext(typeof(VyDbContext))]
-    [Migration("20191117115708_AddedRatingToQuestions")]
-    partial class AddedRatingToQuestions
+    [Migration("20191117142535_AddedSeeding")]
+    partial class AddedSeeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

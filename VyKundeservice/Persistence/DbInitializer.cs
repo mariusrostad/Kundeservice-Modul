@@ -70,49 +70,49 @@ namespace VyKundeservice.Persistence
                 new Question
                 {
                    Message = "Kan det komme flere avganger hos meg?",
-                   Answer = "",
+                   Answer = "Vi vurderer antallet avganger basert på antallet personer som bruker linjen. Hvis etterspørselen er stor så vil vi deretter vurdere om flere avganger er nødvendige.",
                    CategoryId = context.Categories.Single( c => c.Name == "Avganger").CategoryId
                 },
                 new Question
                 {
                    Message = "Hva slags type billetter fins det?",
-                   Answer = "",
+                   Answer = "Vi har billetter for \"studenter\", \"barn\", og \"voksne\".",
                    CategoryId = context.Categories.Single( c => c.Name == "Billett").CategoryId
                 },
                 new Question
                 {
                    Message = "Hva er aldersgrensen på ungdomsbillett?",
-                   Answer = "",
+                   Answer = "Før fyllte 18 år.",
                    CategoryId = context.Categories.Single( c => c.Name == "Billett").CategoryId
                 },
                 new Question
                 {
                    Message = "Hvem bestemmer prisen for billettens?",
-                   Answer = "",
+                   Answer = "Vy velger sprisene i samsvar med våre kunder og aksjonærer",
                    CategoryId = context.Categories.Single( c => c.Name == "Billett").CategoryId
                 },
                 new Question
                 {
                    Message = "Er kvitteringen et gyldig bevis for kjøpt billett?",
-                   Answer = "",
+                   Answer = "Kvittering er gyldig, men vi forbeholder oss retten til å verifisere at kvitteringen er gyldig.",
                    CategoryId = context.Categories.Single( c => c.Name == "Kvittering").CategoryId
                 },
                 new Question
                 {
                    Message = "Hvorfor er stasjonen stengt?",
-                   Answer = "",
+                   Answer = "Det kan være mange grunner til det. Ring kundeservice for mere informasjon.",
                    CategoryId = context.Categories.Single( c => c.Name == "Stasjoner").CategoryId
                 },
                 new Question
                 {
                    Message = "Hvem har ansvar for måking av stasjonen?",
-                   Answer = "",
+                   Answer = "Vi har et sammarbeid med kommunene hvor vi opererer i for å holde stasjonene rene.",
                    CategoryId = context.Categories.Single( c => c.Name == "Stasjoner").CategoryId
                 },
                 new Question
                 {
-                   Message = "Hvordan kan jeg kontakte dere om dårlige stasjoner?",
-                   Answer = "",
+                   Message = "Kan det bygges en stasjon nermere meg?",
+                   Answer = "Vi bygger hele tiden ut nye strekninger og stasjon. Hvis du ønsker flere stasjoner, eller en nærmere deg så kan du ringe oss på kundeservice, eller sende epost.",
                    CategoryId = context.Categories.Single( c => c.Name == "Stasjoner").CategoryId
                 }
             };

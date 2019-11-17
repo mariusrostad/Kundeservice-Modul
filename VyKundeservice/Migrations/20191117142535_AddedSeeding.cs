@@ -2,7 +2,7 @@
 
 namespace VyKundeservice.Migrations
 {
-    public partial class AddedRatingToQuestions : Migration
+    public partial class AddedSeeding : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
