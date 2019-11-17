@@ -12,10 +12,7 @@
                 class="btn btn-secondary btn-lg btn-block" 
                 type="button" 
                 data-toggle="collapse" 
-                [attr.data-target]="'#category-collapse-' + category.categoryId" 
-                aria-expanded="false" 
-                [attr.aria-controls]="'category-collapse-' + category.categoryId"
-                >
+                [attr.data-target]="'#category-collapse-' + category.categoryId">
                 {{ category.name }}
               </button>
             </h5>
@@ -32,20 +29,23 @@
                 <div id="category-{{category.categoryId}}-questions" class="width-100">
                   <div class="card" *ngFor="let question of category.questions">
                     <div class="card-header width-100">
-                      <h5 class="mb-0">
+                      <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: baseline;">
                         <button class="btn btn-link" 
+                        style="align-self: flex-start;"
                           type="button" 
                           data-toggle="collapse" 
-                          [attr.data-target]="'#collapse-question-' + question.questionId" 
-                          aria-expanded="false" 
-                          [attr.aria-controls]="'collapse-question-' + category.categoryId">
+                          [attr.data-target]="'#question-' + question.questionId">
                           {{ question.message }}
                         </button>
-                      </h5>
+                        <p style="padding: .375rem .75rem; margin-bottom: 0; align-self: flex-end;">
+                          Likes: {{ question.likes }}
+                          Dislikes: {{ question.dislikes }}
+                        </p>
+                      </div>
                     </div>
                     <!-- Answer to question -->
                     <div 
-                      id="collapse-question-{{ question.questionId }}" 
+                      id="question-{{ question.questionId }}" 
                       class="collapse" 
                       [attr.data-parent]="'#category-' + category.categoryId + '-questions'">
                       <div class="card-body">
