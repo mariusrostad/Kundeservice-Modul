@@ -25,7 +25,7 @@ namespace VyKundeservice.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserQuestion>>> GetUserQuestions()
         {
-            return await _context.UserQuestions.Include(uq => uq.Category).ToListAsync();
+            return await _context.UserQuestions.Include(uq => uq.Category).OrderByDescending(uq => uq.Id).ToListAsync();
         }
 
         [HttpGet("{id}")]
